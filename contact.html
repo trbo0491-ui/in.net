@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Phần Liên hệ  ❤❤❤</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Particle canvas */
+        canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+
+        /* Card */
+        .about-card {
+            position: relative;
+            z-index: 1;
+            max-width: 420px;
+            margin: 120px auto;
+            padding: 35px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .tags {
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 13px;
+            background: #f1f1f1;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="about-card">
+    <div class="avatar">🌸</div>
+    <h1>Xin chào!</h1>
+    <p>
+        Mình là người yêu thích thiết kế web theo phong cách
+        <b>đơn giản, gọn gàng và dễ thương</b>.
+        Luôn ưu tiên trải nghiệm người dùng và hiệu ứng nhẹ nhàng.
+        đây là trang web được tạo bởi 2 vợ chồng Bão Đăng và Trần Kiên Trinh!
+        <p>@2026 ©</p>
+    </p>
+
+   <div class="tags">
+    <a href="https://www.facebook.com/share/17YR8Vs9NT/" class="tag" target="_blank">facebook-của Bão Đăng</a>
+    <a href="https://x.com/hsk13566" class="tag" target="_blank">X-của Bảo Đăng</a>
+    <a href="https://www.tiktok.com/@hao5yu9?_r=1&_t=ZS-93BrUW4CEWz" class="tag" target="_blank">tiktok-CHỒNG</a>
+    <a href="https://www.tiktok.com/@cocho7864?_r=1&_t=ZS-93Brdt8mKUX" class="tag" target="_blank">TIKTOK-VỢ</a>
+</div>
+
+</div>
+
+<!-- JS: particle effect -->
+<script>
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+
+    let w, h;
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const particles = [];
+    const COUNT = 80;
+
+    for (let i = 0; i < COUNT; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 2 + 1,
+            dx: (Math.random() - 0.5) * 0.5,
+            dy: (Math.random() - 0.5) * 0.5
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+
+            p.x += p.dx;
+            p.y += p.dy;
+
+            if (p.x < 0 || p.x > w) p.dx *= -1;
+            if (p.y < 0 || p.y > h) p.dy *= -1;
+        });
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+</script>
+
+</body>
+</html>

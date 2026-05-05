@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dịch vụ 2 - Xem ảnh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .service-detail {
+            padding: 60px 10%;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .service-detail h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .service-detail p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        /* Overlay xem ảnh */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Dịch vụ 2</h1>
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="services.html">Dịch vụ</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+</header>
+
+<section class="service-detail">
+    <h2>Xem ảnh</h2>
+    <p>
+        Dịch vụ cho phép người dùng xem các hình ảnh minh họa
+        với giao diện gọn gàng, dễ sử dụng.
+    </p>
+
+    <div class="gallery">
+        <img src="ảnh/anhmmm.jpg" alt="Ảnh 1">
+        <img src="https://picsum.photos/400/300?2" alt="Ảnh 2">
+        <img src="https://picsum.photos/400/300?3" alt="Ảnh 3">
+        <img src="https://picsum.photos/400/300?4" alt="Ảnh 4">
+    </div>
+</section>
+
+<div class="overlay" id="overlay">
+    <img id="overlayImg">
+</div>
+
+<footer class="footer">
+    © 2026 😊
+</footer>
+
+<script>
+    const images = document.querySelectorAll(".gallery img");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlayImg");
+
+    images.forEach(img => {
+        img.onclick = () => {
+            overlay.style.display = "flex";
+            overlayImg.src = img.src;
+        };
+    });
+
+    overlay.onclick = () => {
+        overlay.style.display = "none";
+    };
+</script>
+
+</body>
+</html>

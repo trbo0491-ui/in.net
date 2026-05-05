@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dịch vụ 3 - Xem video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== LƯỚT MƯỢT ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .service-detail {
+            padding: 60px 10%;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .service-detail h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .service-detail p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 40px;
+        }
+
+        /* ===== KHUNG VIDEO – CẦU VỒNG ===== */
+        .video-box {
+            position: relative;
+            padding: 6px;
+            border-radius: 22px;
+            max-width: 820px;
+            margin: 40px auto;
+
+            background: linear-gradient(
+                270deg,
+                red,
+                orange,
+                yellow,
+                green,
+                cyan,
+                blue,
+                violet,
+                red
+            );
+            background-size: 400% 400%;
+            animation: rainbowMove 6s linear infinite;
+        }
+
+        @keyframes rainbowMove {
+            0%   { background-position:   0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .video-box video {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+            background: #000;
+        }
+
+        /* glow cầu vồng */
+        .video-box::after {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            border-radius: 30px;
+            background: inherit;
+            filter: blur(25px);
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        /* ===== NÚT LƯỚT ===== */
+        .scroll-btn {
+            position: fixed;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #fff;
+            background: linear-gradient(45deg, #ff0080, #7928ca);
+            box-shadow: 0 0 15px rgba(255, 0, 200, 0.6);
+            z-index: 999;
+        }
+
+        .scroll-up {
+            bottom: 80px;
+        }
+
+        .scroll-down {
+            bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Dịch vụ 3</h1>
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="services.html">Dịch vụ</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+</header>
+
+<section class="service-detail">
+    <h2>Xem video</h2>
+    <p>
+        Hiển thị nhiều video với hiệu ứng cầu vồng chuyển động,
+        lướt mượt và hiện đại.
+    </p>
+
+    <div class="video-box">
+        <video controls>
+            <source src="video/videotiktok.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="video-box">
+        <video controls>
+            <source src="video/videodouyin1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/videodouyin2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/edit-1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/edit-2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+    
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video/" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="video" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+     <div class="video-box">
+        <video controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+
+</section>
+
+<footer class="footer">
+    © 2026 😊
+</footer>
+
+<!-- NÚT LƯỚT -->
+<button class="scroll-btn scroll-up" onclick="scrollToTop()">⬆</button>
+<button class="scroll-btn scroll-down" onclick="scrollToBottom()">⬇</button>
+
+<script>
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
